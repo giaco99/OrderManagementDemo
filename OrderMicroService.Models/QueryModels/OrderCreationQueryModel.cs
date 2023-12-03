@@ -4,7 +4,7 @@ namespace OrderMicroService.QueryModels
 {
     public class OrderCreationQueryModel
     {
-        public OrderViewModel Order { get; set; }
+        public OrderAddViewModel Order { get; set; }
 
         public IEnumerable<int>? ProductIds { get; set; }
     }

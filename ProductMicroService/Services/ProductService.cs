@@ -17,7 +17,7 @@ namespace ProductMicroService.Services
             _mapper = mapper;
         }
 
-        public async Task AddAsync(ProductViewModel productToAdd)
+        public async Task AddAsync(ProductAddViewModel productToAdd)
         {
             var product = _mapper.Map<Product>(productToAdd);
             await _productRepository.AddAsync(product);
@@ -28,19 +28,19 @@ namespace ProductMicroService.Services
             await _productRepository.DeleteByIdAsync(productId);
         }
 
-        public async Task<IEnumerable<ProductViewModel>> GetByCategoryIdAsync(int productCategoryId)
+        public async Task<IEnumerable<ProductUpdateViewModel>> GetByCategoryIdAsync(int productCategoryId)
         {
             var productList =  await _productRepository.GetByCategoryIdAsync(productCategoryId);
-            return _mapper.Map<IEnumerable<ProductViewModel>>(productList);
+            return _mapper.Map<IEnumerable<ProductUpdateViewModel>>(productList);
         }
 
-        public async Task<ProductViewModel> GetByIdAsync(int productId)
+        public async Task<ProductUpdateViewModel> GetByIdAsync(int productId)
         {
             var product =  await _productRepository.GetByIdAsync(productId);
-            return _mapper.Map<ProductViewModel>(product);           
+            return _mapper.Map<ProductUpdateViewModel>(product);           
         }
 
-        public async Task UpdateAsync(ProductViewModel productToUpdate)
+        public async Task UpdateAsync(ProductUpdateViewModel productToUpdate)
         {
             var product = _mapper.Map<Product>(productToUpdate);
             await _productRepository.UpdateAsync(product);
@@ -49,10 +49,10 @@ namespace ProductMicroService.Services
 
     public interface IProductService
     {
-        Task AddAsync(ProductViewModel productToAdd);
+        Task AddAsync(ProductAddViewModel productToAdd);
         Task DeleteByIdAsync(int productId);
-        Task<IEnumerable<ProductViewModel>> GetByCategoryIdAsync(int productCategoryId);
-        Task<ProductViewModel> GetByIdAsync(int productId);
-        Task UpdateAsync(ProductViewModel productToUpdate);
+        Task<IEnumerable<ProductUpdateViewModel>> GetByCategoryIdAsync(int productCategoryId);
+        Task<ProductUpdateViewModel> GetByIdAsync(int productId);
+        Task UpdateAsync(ProductUpdateViewModel productToUpdate);
     }
 }

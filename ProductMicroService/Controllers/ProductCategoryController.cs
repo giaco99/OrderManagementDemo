@@ -17,13 +17,13 @@ namespace ProductMicroService.Controllers
 
 
         [HttpGet("getById")]
-        public async Task<ProductCategoryViewModel> GetByIdAsync(int productCategoryId)
+        public async Task<ProductCategoryUpdateViewModel> GetByIdAsync(int productCategoryId)
         {
             return await _productCategoryService.GetByIdAsync(productCategoryId);
         }
 
         [HttpPost("add")]
-        public async Task AddAsync(ProductCategoryViewModel productCategoryToAdd)
+        public async Task AddAsync(ProductCategoryAddViewModel productCategoryToAdd)
         {
             await _productCategoryService.AddAsync(productCategoryToAdd);
         }
@@ -35,7 +35,7 @@ namespace ProductMicroService.Controllers
         }
 
         [HttpPut("update")]
-        public async Task UpdateAsync(ProductCategoryViewModel productCategoryToUpdate)
+        public async Task UpdateAsync(ProductCategoryUpdateViewModel productCategoryToUpdate)
         {
             await _productCategoryService.UpdateAsync(productCategoryToUpdate);
         }

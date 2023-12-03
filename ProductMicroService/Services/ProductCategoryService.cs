@@ -21,7 +21,7 @@ namespace ProductMicroService.Services
             _mapper = mapper;
         }
 
-        public async Task AddAsync(ProductCategoryViewModel productCategoryToAdd)
+        public async Task AddAsync(ProductCategoryAddViewModel productCategoryToAdd)
         {
             var dto = _mapper.Map<ProductCategory>(productCategoryToAdd);
             await _productCategoryRepository.AddAsync(dto);
@@ -36,13 +36,13 @@ namespace ProductMicroService.Services
             await _productCategoryRepository.DeleteByIdAsync(productCategoryId);
         }
 
-        public async Task<ProductCategoryViewModel> GetByIdAsync(int productCategoryId)
+        public async Task<ProductCategoryUpdateViewModel> GetByIdAsync(int productCategoryId)
         {
             var result = await _productCategoryRepository.GetByIdAsync(productCategoryId);
-            return _mapper.Map<ProductCategoryViewModel>(result);
+            return _mapper.Map<ProductCategoryUpdateViewModel>(result);
         }
 
-        public async Task UpdateAsync(ProductCategoryViewModel productCategoryToUpdate)
+        public async Task UpdateAsync(ProductCategoryUpdateViewModel productCategoryToUpdate)
         {
             var dto = _mapper.Map<ProductCategory>(productCategoryToUpdate);
             await _productCategoryRepository.UpdateAsync(dto);
@@ -51,9 +51,9 @@ namespace ProductMicroService.Services
 
     public interface IProductCategoryService
     {
-        Task AddAsync(ProductCategoryViewModel productCategoryToAdd);
+        Task AddAsync(ProductCategoryAddViewModel productCategoryToAdd);
         Task DeleteByIdAsync(int productCategoryId);
-        Task<ProductCategoryViewModel> GetByIdAsync(int productCategoryId);
-        Task UpdateAsync(ProductCategoryViewModel productCategoryToUpdate);
+        Task<ProductCategoryUpdateViewModel> GetByIdAsync(int productCategoryId);
+        Task UpdateAsync(ProductCategoryUpdateViewModel productCategoryToUpdate);
     }
 }

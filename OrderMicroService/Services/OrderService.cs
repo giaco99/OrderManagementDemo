@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using OrderMicroService.Models;
+using OrderMicroService.Models.ViewModels;
 using OrderMicroService.QueryModels;
 using OrderMicroService.Repository;
-using SharedModels.Order.ViewModels;
 
 namespace OrderMicroService.Services
 {
@@ -40,13 +40,13 @@ namespace OrderMicroService.Services
             await _orderRepository.DeleteByIdAsync(orderId);
         }
 
-        public async Task<OrderViewModel> GetByIdAsync(int orderId)
+        public async Task<OrderUpdateViewModel> GetByIdAsync(int orderId)
         {
             var order = await _orderRepository.GetByIdAsync(orderId);
-            return _mapper.Map<OrderViewModel>(order);
+            return _mapper.Map<OrderUpdateViewModel>(order);
         }
 
-        public async Task UpdateAsync(OrderViewModel orderToUpdate)
+        public async Task UpdateAsync(OrderUpdateViewModel orderToUpdate)
         {
             var order = _mapper.Map<Order>(orderToUpdate);
             await _orderRepository.UpdateAsync(order);
@@ -57,7 +57,7 @@ namespace OrderMicroService.Services
     {
         Task AddAsync(OrderCreationQueryModel requestModel);
         Task DeleteByIdAsync(int orderId);
-        Task<OrderViewModel> GetByIdAsync(int orderId);
-        Task UpdateAsync(OrderViewModel orderToUpdate);
+        Task<OrderUpdateViewModel> GetByIdAsync(int orderId);
+        Task UpdateAsync(OrderUpdateViewModel orderToUpdate);
     }
 }

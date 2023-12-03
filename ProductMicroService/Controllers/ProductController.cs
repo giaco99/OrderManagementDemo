@@ -16,19 +16,19 @@ namespace ProductMicroService.Controllers
         }
 
         [HttpGet("getById")]
-        public async Task<ProductViewModel> GetByIdAsync(int productId)
+        public async Task<ProductAddViewModel> GetByIdAsync(int productId)
         {
             return await _productService.GetByIdAsync(productId);
         }
 
         [HttpGet("getByCategoryId")]
-        public async Task<IEnumerable<ProductViewModel>> GetByCategoryIdAsync(int productCategoryId)
+        public async Task<IEnumerable<ProductUpdateViewModel>> GetByCategoryIdAsync(int productCategoryId)
         {
             return await _productService.GetByCategoryIdAsync(productCategoryId);
         }
 
         [HttpPost("add")]
-        public async Task AddAsync(ProductViewModel productToAdd)
+        public async Task AddAsync(ProductAddViewModel productToAdd)
         {
             await _productService.AddAsync(productToAdd);
         }
@@ -40,7 +40,7 @@ namespace ProductMicroService.Controllers
         }
 
         [HttpPut("update")]
-        public async Task UpdateAsync(ProductViewModel productToUpdate)
+        public async Task UpdateAsync(ProductUpdateViewModel productToUpdate)
         {
             await _productService.UpdateAsync(productToUpdate);
         }

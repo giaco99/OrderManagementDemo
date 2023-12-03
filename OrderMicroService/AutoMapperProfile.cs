@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using OrderMicroService.Models;
+using OrderMicroService.Models.ViewModels;
 using SharedModels.Order.ViewModels;
 
 namespace OrderMicroService
@@ -8,9 +9,13 @@ namespace OrderMicroService
     {
         public AutoMapperProfile()
         {
-            CreateMap<Order, OrderViewModel>();
+            CreateMap<Order, OrderAddViewModel>();
 
-            CreateMap<OrderViewModel, Order>();
+            CreateMap<OrderAddViewModel, Order>();
+
+            CreateMap<Order, OrderUpdateViewModel>();
+
+            CreateMap<OrderUpdateViewModel, Order>();
         }
     }
 }

@@ -8,13 +8,21 @@ namespace ProductMicroService
     {
         public AutoMapperProfile()
         {
-            CreateMap<Product, ProductViewModel>();
+            CreateMap<Product, ProductAddViewModel>();
 
-            CreateMap<ProductViewModel, Product>();
+            CreateMap<ProductAddViewModel, Product>();
 
-            CreateMap<ProductCategoryViewModel, ProductCategory>();
+            CreateMap<Product, ProductUpdateViewModel>();
 
-            CreateMap<ProductCategory, ProductCategoryViewModel>();
+            CreateMap<ProductUpdateViewModel, Product>();
+
+            CreateMap<ProductCategoryAddViewModel, ProductCategory>();
+
+            CreateMap<ProductCategory, ProductCategoryAddViewModel>();
+
+            CreateMap<ProductCategoryUpdateViewModel, ProductCategory>();
+
+            CreateMap<ProductCategory, ProductCategoryUpdateViewModel>();
         }
     }
 }

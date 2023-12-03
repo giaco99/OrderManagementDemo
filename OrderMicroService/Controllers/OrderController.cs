@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using OrderMicroService.Models.ViewModels;
 using OrderMicroService.QueryModels;
 using OrderMicroService.Services;
 using SharedModels.Order.ViewModels;
@@ -18,7 +19,7 @@ namespace OrderMicroService.Controllers
         }
 
         [HttpGet("getById")]
-        public async Task<OrderViewModel> GetByIdAsync(int orderId)
+        public async Task<OrderUpdateViewModel> GetByIdAsync(int orderId)
         {
             return await _orderService.GetByIdAsync(orderId);
         }
@@ -36,7 +37,7 @@ namespace OrderMicroService.Controllers
         }
 
         [HttpPut("update")]
-        public async Task UpdateAsync(OrderViewModel orderToUpdate)
+        public async Task UpdateAsync(OrderUpdateViewModel orderToUpdate)
         {
             await _orderService.UpdateAsync(orderToUpdate);
         }
