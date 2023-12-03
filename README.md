@@ -1,9 +1,9 @@
 # Instructions to start
  - Setup connection strings in AppSettings.json/AppSettings.development.json in projects ProductMicroService/OrderMicroService
  - Install nuget packages
- - Launch this commands inside the folder of the projects ProductMicroService/OrderMicroService :
-    a. dotnet ef migrations add Initial
-    b. dotnet ef database update Initial
+ - Launch this commands inside the folder of the projects ProductMicroService/OrderMicroService : <br>
+    a. dotnet ef migrations add Initial <br>
+    b. dotnet ef database update Initial <br>
  - Set your solution as a multiple startup project in solution properties <br> <br>
    ![image](https://github.com/giaco99/OrderManagementDemo/assets/62729639/c6f509ff-eb61-4d71-890b-aa5f41a8b0d7)
 
