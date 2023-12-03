@@ -4,7 +4,7 @@
  - Launch this commands inside the folder of the projects ProductMicroService/OrderMicroService :
     a. dotnet ef migrations add Initial
     b. dotnet ef database update Initial
- - Set your solution as a multiple startup project in solution properties
+ - Set your solution as a multiple startup project in solution properties <br> <br>
    ![image](https://github.com/giaco99/OrderManagementDemo/assets/62729639/c6f509ff-eb61-4d71-890b-aa5f41a8b0d7)
 
 # Instructions to test GatewayApi
