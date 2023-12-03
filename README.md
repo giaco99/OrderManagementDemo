@@ -8,7 +8,7 @@
    ![image](https://github.com/giaco99/OrderManagementDemo/assets/62729639/c6f509ff-eb61-4d71-890b-aa5f41a8b0d7)
 
 # Instructions to test GatewayApi
- - The GatewayApi manages the "GetById" calls of both the microservices so before test it you must :
+ - The GatewayApi manages the "GetById" calls of both the microservices so before test it you must : <br>
     a. add one productCategory and after one product from ProductMicroServiceApi's swagger interface <br>
     b. add one order OrderMicroServiceApi's swagger interface <br>
     c. this is the GWApi baseUrl : https://localhost:7011 <br>
